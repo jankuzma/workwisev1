@@ -1,0 +1,3 @@
+# Ideas
+
+## CV GENERATOR
