@@ -42,7 +42,10 @@ module.exports = {
         // '../../**/*.py'
     ],
     theme: {
-        extend: {},
+        extend: {
+            animation: {
+            'spin-slow': 'spin 3s linear infinite',
+        },
         fontFamily:{
           'sans': ['Ubuntu', 'sans-serif'],
         },
@@ -58,4 +61,4 @@ module.exports = {
         require('@tailwindcss/line-clamp'),
         require('@tailwindcss/aspect-ratio'),
     ],
-}
+},}

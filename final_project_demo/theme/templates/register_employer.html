@@ -1,0 +1,78 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-background">
+<head>
+    <title>WorkWise</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% tailwind_css %}
+</head>
+<body class="h-full bg-gray-100">
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 bg-background">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <img class="mx-auto h-10 w-auto animate-spin-slow"
+             src="https://cdn3.iconfinder.com/data/icons/feather-5/24/codesandbox-512.png" alt="Your Company">
+        <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-text hover:text-indigo-600">Sign up</h2>
+    </div>
+
+    <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form class="space-y-6" method="POST">
+            {% csrf_token %}
+            <div class="group">
+                <label for="email" class="icon block text-sm font-medium leading-6 text-text group-hover:text-indigo-600 group-hover:font-bold">Email address</label>
+                <div class="mt-2">
+                    <input id="email" name="email" type="email" autocomplete="email" required
+                           class="block w-full rounded-md border-0 py-1.5 px-3 text-text shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 group-hover:bg-gray-50">
+                </div>
+            </div>
+            <div class="group">
+                <label for="company_name" class="icon block text-sm font-medium leading-6 text-text group-hover:text-indigo-600 group-hover:font-bold">Company
+                    name</label>
+                <div class="mt-2">
+                    <input id="company_name" name="company_name" type="text" required
+                           class="block w-full rounded-md border-0 py-1.5 px-3 text-text shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 group-hover:bg-gray-50">
+                </div>
+            </div>
+            <div class="group">
+                <label for="website" class="icon block text-sm font-medium leading-6 text-text group-hover:text-indigo-600 group-hover:font-bold">Website URL</label>
+                <div class="mt-2">
+                    <input id="website" name="website" type="url" required
+                           class="block w-full rounded-md border-0 py-1.5 px-3 text-text shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 group-hover:bg-gray-50">
+                </div>
+            </div>
+            <div>
+                <div class="group">
+                    <div class="flex items-center justify-between">
+                        <label for="password1" class="block text-sm font-medium leading-6 text-text group-hover:text-indigo-600 group-hover:font-bold">Password</label>
+                    </div>
+                    <div class="mt-2">
+                        <input id="password1" name="password1" type="password" required
+                               class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 group-hover:bg-gray-50">
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="mt-2 flex items-center justify-between">
+                        <label for="password2" class="block text-sm font-medium leading-6 text-text group-hover:text-indigo-600 group-hover:font-bold">Confirm
+                            Password</label>
+                    </div>
+                    <div class="mt-2">
+                        <input id="password2" name="password2" type="password" required
+                               class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 group-hover:bg-gray-50">
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="submit"
+                        class=" flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Sign in
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+</body>
+</html>

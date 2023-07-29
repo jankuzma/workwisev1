@@ -31,6 +31,8 @@ class Languages(models.Model):
 
 
 class EmployerUser(AbstractBaseUser, PermissionsMixin):
+    name = models.CharField(max_length=32, null=True, blank=True)
+    surname = models.CharField(max_length=32, null=True, blank=True)
     email = models.EmailField(unique=True)
     company_name = models.CharField(max_length=100)
     website = models.CharField(max_length=200)
@@ -55,10 +57,12 @@ class EmployerUser(AbstractBaseUser, PermissionsMixin):
 
 
 class JobSeekerUser(AbstractBaseUser, PermissionsMixin):
+    name = models.CharField(max_length=32, null=True, blank=True)
+    surname = models.CharField(max_length=32, null=True, blank=True)
     email = models.EmailField(unique=True)
     cv = models.FileField(upload_to='cv/', blank=True, null=True)
-    location = models.CharField(max_length=100)
-    language_known = models.ForeignKey(Languages, on_delete=models.CASCADE)
+    location = models.CharField(max_length=100, blank=True, null=True)
+    language_known = models.ForeignKey(Languages, on_delete=models.CASCADE, blank=True, null=True)
     github_profile = models.URLField(max_length=200, blank=True, null=True)
     codewars_profile = models.URLField(max_length=200, blank=True, null=True)
     is_active = models.BooleanField(default=True)
@@ -78,7 +82,7 @@ class JobSeekerUser(AbstractBaseUser, PermissionsMixin):
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['location']
+    REQUIRED_FIELDS = ['surname']
 
 
 class JobListing(models.Model):
