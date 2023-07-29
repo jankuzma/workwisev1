@@ -9,19 +9,23 @@
 
     {% tailwind_css %}
 </head>
-<body class="h-full">
+<body class="h-full cursor-none">
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 bg-gray-100">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-        <img class="mx-auto h-10 w-auto animate-spin-slow" src="https://cdn3.iconfinder.com/data/icons/feather-5/24/codesandbox-512.png"
+        <img class="mx-auto h-10 w-auto animate-spin-slow"
+             src="https://cdn3.iconfinder.com/data/icons/feather-5/24/codesandbox-512.png"
              alt="Your Company">
-        <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight hover:text-indigo-600">Sign in to your account</h2>
+        <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight hover:text-indigo-600">Sign in to your
+            account</h2>
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form class="space-y-6" method="POST">
             {% csrf_token %}
             <div class="group">
-                <label for="email" class="icon block text-sm font-medium leading-6 group-hover:text-indigo-600 group-hover:font-bold">Email address</label>
+                <label for="email"
+                       class="icon block text-sm font-medium leading-6 group-hover:text-indigo-600 group-hover:font-bold">Email
+                    address</label>
                 <div class="mt-2">
                     <input id="email" name="email" type="email" autocomplete="email" required
                            class="block w-full rounded-md border-0 py-1.5 px-3 text-text shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6 group-hover:bg-gray-50">
@@ -30,7 +34,8 @@
 
             <div class="group">
                 <div class="flex items-center justify-between">
-                    <label for="password" class="block text-sm font-medium leading-6 group-hover:text-indigo-600 group-hover:font-bold">Password</label>
+                    <label for="password"
+                           class="block text-sm font-medium leading-6 group-hover:text-indigo-600 group-hover:font-bold">Password</label>
                     <div class="text-sm">
                         <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
                     </div>
@@ -66,7 +71,8 @@
                         job seeking
                     </button>
                 </a>
-                <a href="{% url 'employer_register' %}" class="flex w-full justify-center rounded-md bg-black py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                <a href="{% url 'employer_register' %}"
+                   class="flex w-full justify-center rounded-md bg-black py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     <button>
                         recruitment
                     </button>
@@ -74,15 +80,82 @@
             </div>
         </div>
 
-        <script async defer>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+
+        <script>
+            const coords = {x: 0, y: 0};
+            const circles = document.querySelectorAll(".circle");
+
+            const colors = [
+                "#000000",
+            ];
+
+            circles.forEach(function (circle, index) {
+                circle.x = 0;
+                circle.y = 0;
+                circle.style.backgroundColor = colors[index % colors.length];
+            });
+
+            window.addEventListener("mousemove", function (e) {
+                coords.x = e.clientX;
+                coords.y = e.clientY;
+
+            });
+
+            function animateCircles() {
+
+                let x = coords.x;
+                let y = coords.y;
+
+                circles.forEach(function (circle, index) {
+                    circle.style.left = x - 12 + "px";
+                    circle.style.top = y - 12 + "px";
+
+                    circle.style.scale = (circles.length - index) / circles.length;
+
+                    circle.x = x;
+                    circle.y = y;
+
+                    const nextCircle = circles[index + 1] || circles[0];
+                    x += (nextCircle.x - x) * 0.3;
+                    y += (nextCircle.y - y) * 0.3;
+                });
+
+                requestAnimationFrame(animateCircles);
+            }
+
+           animateCircles();
             let modal = document.getElementById("my-modal");
 
             let btn = document.getElementById("open-modal-btn");
 
-            {#let button = document.getElementById("ok-btn");#}
-
             btn.onclick = function () {
-                modal.style.display = 'block';
+                if (modal.style.display === 'block') {
+                    modal.style.display = 'none'
+                } else {
+                    modal.style.display = 'block';
+                }
+
+
             }
 
         </script>
