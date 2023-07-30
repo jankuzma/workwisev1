@@ -24,31 +24,32 @@
             {% csrf_token %}
             <div class="group">
                 <label for="email"
-                       class="icon block text-sm font-medium leading-6 group-hover:text-indigo-600 group-hover:font-bold">Email
+                       class="icon block text-sm font-medium leading-6 group-hover:text-indigo-600 group-hover:font-bold cursor-none">Email
                     address</label>
                 <div class="mt-2">
                     <input id="email" name="email" type="email" autocomplete="email" required
-                           class="block w-full rounded-md border-0 py-1.5 px-3 text-text shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6 group-hover:bg-gray-50">
+                           class="cursor-none block w-full rounded-md border-0 py-1.5 px-3 text-text shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6 group-hover:bg-gray-50">
                 </div>
             </div>
 
             <div class="group">
                 <div class="flex items-center justify-between">
                     <label for="password"
-                           class="block text-sm font-medium leading-6 group-hover:text-indigo-600 group-hover:font-bold">Password</label>
+                           class="block text-sm font-medium leading-6 group-hover:text-indigo-600 group-hover:font-bold cursor-none">Password</label>
                     <div class="text-sm">
-                        <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+                        <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500 cursor-none ">Forgot
+                            password?</a>
                     </div>
                 </div>
                 <div class="mt-2">
                     <input id="password" name="password" type="password" autocomplete="current-password" required
-                           class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6 group-hover:bg-gray-50">
+                           class="block cursor-none w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black sm:text-sm sm:leading-6 group-hover:bg-gray-50">
                 </div>
             </div>
 
             <div>
                 <button type="submit"
-                        class=" flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        class=" flex cursor-none w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     Sign in
                 </button>
             </div>
@@ -56,8 +57,8 @@
 
         <p class="mt-10 text-center text-sm text-gray-500">
             Not a member?
-            <button id="open-modal-btn"><a href="#"
-                                           class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Sign
+            <button id="open-modal-btn" class="cursor-none"><a href="#"
+                                                               class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 cursor-none">Sign
                 up</a></button>
         </p>
 
@@ -66,14 +67,14 @@
             <p class="flex justify-center">Which describes you best?</p>
             <div class="flex justify-center space-x-1 p-4">
                 <a href="{% url 'jobseeker_register' %}"
-                   class="flex w-full justify-center rounded-md bg-black py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 hover:bg-indigo-600">
-                    <button>
+                   class="flex w-full justify-center rounded-md bg-black py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 hover:bg-indigo-600 cursor-none">
+                    <button class="cursor-none">
                         job seeking
                     </button>
                 </a>
                 <a href="{% url 'employer_register' %}"
-                   class="flex w-full justify-center rounded-md bg-black py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                    <button>
+                   class="flex w-full justify-center rounded-md bg-black py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-none">
+                    <button class="cursor-none">
                         recruitment
                     </button>
                 </a>
@@ -136,14 +137,14 @@
                     circle.y = y;
 
                     const nextCircle = circles[index + 1] || circles[0];
-                    x += (nextCircle.x - x) * 0.3;
-                    y += (nextCircle.y - y) * 0.3;
+                    x += (nextCircle.x - x) * 0.2;
+                    y += (nextCircle.y - y) * 0.2;
                 });
 
                 requestAnimationFrame(animateCircles);
             }
 
-           animateCircles();
+            animateCircles();
             let modal = document.getElementById("my-modal");
 
             let btn = document.getElementById("open-modal-btn");

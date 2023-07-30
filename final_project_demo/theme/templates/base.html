@@ -10,7 +10,7 @@
     {% tailwind_css %}
 </head>
 
-<body class="bg-gray-100 font-sans text-text leading-normal tracking-normal h-full">
+<body class="bg-gray-200 font-sans text-text leading-normal tracking-normal h-full">
 
 <header class=" inset-x-0 top-0 z-50 block sticky bg-gray-100 ">
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
@@ -23,9 +23,9 @@
             </a>
         </div>
         <div class="hidden lg:flex lg:gap-x-12 ">
-            <a href="#" class="text-md font-semibold leading-6 text-text">Browse</a>
-            <a href="#" class="text-md font-semibold leading-6 text-text">Search</a>
-            <a href="#" class="text-md font-semibold leading-6 text-text">Events</a>
+            <a href="#" class="text-md font-semibold leading-6 opacity-100 hover:underline-offset-4 hover:underline hover:opacity-40">Browse</a>
+            <a href="#" class="text-md font-semibold leading-6 hover:underline-offset-4 hover:underline hover:opacity-40">Search</a>
+            <a href="#" class="text-md font-semibold leading-6 hover:underline-offset-4 hover:underline hover:opacity-40">Events</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             {% if user.is_authenticated %}
@@ -51,9 +51,7 @@
         </div>
     </nav>
 </header>
-<div class="min-w-screen min-h-screen bg-gray-200 flex items-center justify-center px-5 py-5">
 
-    <div>
         {% block content %}
         {% endblock %}
 
